@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-servers',
@@ -13,6 +12,9 @@ export class ServersComponent implements OnInit {
   userName = '';
   serverCreated = false;
   servers = ['TestServer', 'TestServer2'];
+  displayToggleButton = false;
+  toggleButtonCountArray = [];
+  toggleButtonCount = 0;
 
   constructor() {
     setTimeout(() => {
@@ -37,7 +39,11 @@ export class ServersComponent implements OnInit {
     if (this.userName.length > 0 ) {
       this.userName = '';
     }
+  }
 
+  onToggleButton() {
+    this.displayToggleButton = !this.displayToggleButton;
+    this.toggleButtonCountArray.push(this.toggleButtonCount += 1);
   }
 
 
